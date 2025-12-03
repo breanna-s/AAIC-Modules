@@ -1,26 +1,50 @@
 ---
-title: "Your Title"
+title: "Interactive Water Quality Analysis"
 format: html
 ---
 
-<!-- Thebe configuration at the top -->
+<!-- Thebe Configuration -->
 <script type="text/x-thebe-config">
 {
   requestKernel: true,
   binderOptions: {
-    repo: "YOUR-USERNAME/YOUR-REPO",
-    ref: "main"
-  }
+    repo: "breanna-s/AAIC-Modules",
+    ref: "main"  // or "master" depending on your default branch
+  },
+  kernelOptions: {
+    name: "python3",
+    path: "."
+  },
+  mountActivateWidget: true,
+  mountStatusWidget: true
 }
 </script>
 
+<!-- Load Thebe library -->
 <script src="https://unpkg.com/thebe@latest/lib/index.js"></script>
 
-<!-- Activation button -->
-<div class="thebe-activate"></div>
+<!-- Optional: Custom styling -->
+<style>
+.thebe-activate-button {
+  background-color: #0066cc;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+</style>
 
-<!-- Your interactive code -->
+## Your Content
+
+Click the button below to activate the cloud kernel:
+
+<!-- Activation widgets -->
+<div class="thebe-activate"></div>
+<div class="thebe-status"></div>
+
+<!-- Interactive code cells -->
 <pre data-executable="true" data-language="python">
 import numpy as np
-print("Hello from the cloud!")
+print("Code runs in the cloud!")
 </pre>

@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Welcome – AAIC</title>
+<title>Interactive Water Quality Analysis – AAIC</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -90,7 +90,7 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link active" href="./index.html" aria-current="page"> 
+    <a class="nav-link" href="./index.html"> 
 <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
@@ -118,7 +118,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Welcome</h1>
+<h1 class="title">Interactive Water Quality Analysis</h1>
 </div>
 
 
@@ -135,11 +135,49 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="welcome-to-the-cnn-learning-modules" class="level1">
-<h1>Welcome to the CNN Learning Modules</h1>
-<p>This website provides a gentle introduction to Convolutional Neural Networks (CNNs)<br>
-designed for students with <em>no prior programming or machine learning experience</em>.</p>
-<p>All coding is done <strong>in the cloud</strong> using Google Colab — no installation is required.</p>
+<!-- Thebe Configuration -->
+<script type="text/x-thebe-config">
+{
+  requestKernel: true,
+  binderOptions: {
+    repo: "breanna-s/AAIC-Modules",
+    ref: "main"  // or "master" depending on your default branch
+  },
+  kernelOptions: {
+    name: "python3",
+    path: "."
+  },
+  mountActivateWidget: true,
+  mountStatusWidget: true
+}
+</script>
+<!-- Load Thebe library -->
+<script src="https://unpkg.com/thebe@latest/lib/index.js"></script>
+<!-- Optional: Custom styling -->
+<style>
+.thebe-activate-button {
+  background-color: #0066cc;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+</style>
+<section id="your-content" class="level2">
+<h2 class="anchored" data-anchor-id="your-content">Your Content</h2>
+<p>Click the button below to activate the cloud kernel:</p>
+<!-- Activation widgets -->
+<div class="thebe-activate">
+
+</div>
+<div class="thebe-status">
+
+</div>
+<!-- Interactive code cells -->
+<pre data-executable="true" data-language="python">import numpy as np
+print("Code runs in the cloud!")
+</pre>
 
 
 </section>

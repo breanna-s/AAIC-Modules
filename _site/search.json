@@ -7,24 +7,38 @@
     "text": "Welcome to the CNN Learning Modules\nThis website provides a gentle introduction to Convolutional Neural Networks (CNNs)\ndesigned for students with no prior programming or machine learning experience.\nAll coding is done in the cloud using Google Colab — no installation is required."
   },
   {
-    "objectID": "AAIC-Modules.html",
-    "href": "AAIC-Modules.html",
+    "objectID": "AAIC-Module-Thebe.html",
+    "href": "AAIC-Module-Thebe.html",
+    "title": "Interactive Water Quality Analysis",
+    "section": "",
+    "text": "Click the button below to activate the cloud kernel:\n\n\n\n\n\n\n\n\nimport numpy as np\nprint(\"Code runs in the cloud!\")"
+  },
+  {
+    "objectID": "AAIC-Module-Thebe.html#your-content",
+    "href": "AAIC-Module-Thebe.html#your-content",
+    "title": "Interactive Water Quality Analysis",
+    "section": "",
+    "text": "Click the button below to activate the cloud kernel:\n\n\n\n\n\n\n\n\nimport numpy as np\nprint(\"Code runs in the cloud!\")"
+  },
+  {
+    "objectID": "AAIC-Modules-Pyodide.html",
+    "href": "AAIC-Modules-Pyodide.html",
     "title": "Introduction to Machine Learning for Water Quality",
     "section": "",
     "text": "Try running this Python code in your browser:\n\nPlease enable JavaScript to experience the dynamic code cell content on this page."
   },
   {
-    "objectID": "AAIC-Modules.html#more-coming-soon",
-    "href": "AAIC-Modules.html#more-coming-soon",
+    "objectID": "AAIC-Modules-Pyodide.html#your-first-interactive-code",
+    "href": "AAIC-Modules-Pyodide.html#your-first-interactive-code",
+    "title": "Introduction to Machine Learning for Water Quality",
+    "section": "",
+    "text": "Try running this Python code in your browser:\n\nPlease enable JavaScript to experience the dynamic code cell content on this page."
+  },
+  {
+    "objectID": "AAIC-Modules-Pyodide.html#more-coming-soon",
+    "href": "AAIC-Modules-Pyodide.html#more-coming-soon",
     "title": "Introduction to Machine Learning for Water Quality",
     "section": "More Coming Soon!",
     "text": "More Coming Soon!\nCheck back later for new modules on pooling, feature maps, and real-world CNNs."
-  },
-  {
-    "objectID": "AAIC-Modules.html#your-first-interactive-code",
-    "href": "AAIC-Modules.html#your-first-interactive-code",
-    "title": "Introduction to Machine Learning for Water Quality",
-    "section": "",
-    "text": "Try running this Python code in your browser:\n\nPlease enable JavaScript to experience the dynamic code cell content on this page."
   }
 ]
