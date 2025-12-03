@@ -1,0 +1,19 @@
+---
+title: "Introduction to Machine Learning for Water Quality"
+subtitle: "Understanding CNNs with Interactive Python"
+format: html
+filters:
+  - pyodide
+---
+
+## Your First Interactive Code
+
+Try running this Python code in your browser:
+```{pyodide-python}
+import numpy as np
+print("Hello from Pyodide!")
+print(f"NumPy version: {np.__version__}")
+```
+## More Coming Soon!
+
+Check back later for new modules on pooling, feature maps, and real-world CNNs.

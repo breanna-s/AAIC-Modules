@@ -1,0 +1,30 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Welcome",
+    "section": "",
+    "text": "Welcome to the CNN Learning Modules\nThis website provides a gentle introduction to Convolutional Neural Networks (CNNs)\ndesigned for students with no prior programming or machine learning experience.\nAll coding is done in the cloud using Google Colab — no installation is required."
+  },
+  {
+    "objectID": "AAIC-Modules.html",
+    "href": "AAIC-Modules.html",
+    "title": "Introduction to Machine Learning for Water Quality",
+    "section": "",
+    "text": "Try running this Python code in your browser:\n\nPlease enable JavaScript to experience the dynamic code cell content on this page."
+  },
+  {
+    "objectID": "AAIC-Modules.html#more-coming-soon",
+    "href": "AAIC-Modules.html#more-coming-soon",
+    "title": "Introduction to Machine Learning for Water Quality",
+    "section": "More Coming Soon!",
+    "text": "More Coming Soon!\nCheck back later for new modules on pooling, feature maps, and real-world CNNs."
+  },
+  {
+    "objectID": "AAIC-Modules.html#your-first-interactive-code",
+    "href": "AAIC-Modules.html#your-first-interactive-code",
+    "title": "Introduction to Machine Learning for Water Quality",
+    "section": "",
+    "text": "Try running this Python code in your browser:\n\nPlease enable JavaScript to experience the dynamic code cell content on this page."
+  }
+]

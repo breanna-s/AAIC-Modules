@@ -1,0 +1,17 @@
+project:
+  type: website
+
+website:
+  title: "AAIC"
+  navbar:
+    left:
+      - href: index.qmd
+        text: Home
+      - href: AAIC-Modules-Pyodide.qmd
+        text: Module 1
+      - href: AAIC-Modules-Thebe.qmd
+        text: Module 2
+
+format:
+  html:
+    theme: cosmo

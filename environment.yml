@@ -1,9 +1,0 @@
-name: cnn-demo
-channels:
-  - pytorch
-  - conda-forge
-dependencies:
-  - python=3.11
-  - pytorch
-  - torchvision
-  - matplotlib

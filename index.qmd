@@ -1,0 +1,10 @@
+---
+title: "Welcome"
+---
+
+# Welcome to the CNN Learning Modules
+
+This website provides a gentle introduction to Convolutional Neural Networks (CNNs)  
+designed for students with *no prior programming or machine learning experience*.
+
+All coding is done **in the cloud** using Google Colab — no installation is required.
