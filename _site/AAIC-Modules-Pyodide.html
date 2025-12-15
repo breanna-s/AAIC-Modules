@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Introduction to Machine Learning for Water Quality – AAIC</title>
+<title>Machine Learning for Water Quality Prediction – AAIC</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -230,7 +230,7 @@ globalThis.qpyodideCustomizedPyodideOptions = {
 }
 
 // Store cell data
-globalThis.qpyodideCellDetails = [{"code":"import numpy as np\nprint(\"Hello from Pyodide!\")\nprint(f\"NumPy version: {np.__version__}\")","id":1,"options":{"autorun":"","classes":"","comment":"","context":"interactive","dpi":72,"fig-cap":"","fig-height":5,"fig-width":7,"label":"","message":"true","out-height":"","out-width":"700px","output":"true","read-only":"false","results":"markup","warning":"true"}}];
+globalThis.qpyodideCellDetails = [{"code":"\n# This code creates our dataset and trains the AI model\nimport numpy as np\nimport pandas as pd\nfrom sklearn.model_selection import train_test_split\nfrom sklearn.ensemble import RandomForestClassifier\nfrom sklearn.metrics import accuracy_score\n\nnp.random.seed(42)\nn_samples = 200\n\ndata = {\n    'pH': np.random.normal(7.0, 1.2, n_samples),\n    'Dissolved_Oxygen': np.random.normal(8.0, 2.5, n_samples),\n    'Turbidity': np.random.gamma(2, 2, n_samples),\n    'Temperature': np.random.normal(22, 4, n_samples),\n    'Conductivity': np.random.normal(500, 150, n_samples),\n    'Nitrates': np.random.gamma(1.5, 2, n_samples)\n}\n\ndf = pd.DataFrame(data)\ndf['pH'] = df['pH'].clip(4.5, 9.5)\ndf['Dissolved_Oxygen'] = df['Dissolved_Oxygen'].clip(2, 14)\ndf['Turbidity'] = df['Turbidity'].clip(0.5, 25)\ndf['Temperature'] = df['Temperature'].clip(10, 35)\ndf['Conductivity'] = df['Conductivity'].clip(100, 1000)\ndf['Nitrates'] = df['Nitrates'].clip(0, 15)\n\ndef classify_water_quality(row):\n    score = 0\n    if 6.5 <= row['pH'] <= 8.5: score += 2\n    elif 5.5 <= row['pH'] <= 9.0: score += 1\n    if row['Dissolved_Oxygen'] >= 7: score += 2\n    elif row['Dissolved_Oxygen'] >= 5: score += 1\n    if row['Turbidity'] <= 5: score += 2\n    elif row['Turbidity'] <= 10: score += 1\n    if 15 <= row['Temperature'] <= 25: score += 1\n    if row['Nitrates'] <= 5: score += 1\n    if score >= 6: return 'Excellent'\n    elif score >= 4: return 'Good'\n    elif score >= 2: return 'Fair'\n    else: return 'Poor'\n\ndf['Quality'] = df.apply(classify_water_quality, axis=1)\n\nX = df.drop('Quality', axis=1)\ny = df['Quality']\nX_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42, stratify=y)\n\nmodel = RandomForestClassifier(n_estimators=100, max_depth=10, random_state=42)\nmodel.fit(X_train, y_train)\npredictions = model.predict(X_test)\naccuracy = accuracy_score(y_test, predictions)\n\nprint(\"✅ Setup complete - AI model is ready to use!\")","id":1,"options":{"autorun":"","classes":"","code-fold":"true","code-summary":"Setup Code (click to expand if youre curious)","comment":"","context":"interactive","dpi":72,"fig-cap":"","fig-height":5,"fig-width":7,"label":"","message":"true","out-height":"","out-width":"700px","output":"true","read-only":"false","results":"markup","warning":"true"}},{"code":"print(\"✓ We have 200 water samples!\")\nprint(\"\\nHere are the first 10 samples:\")\nprint(df.head(10))\nprint(\"\\n\" + \"=\"*70)\nprint(\"\\nHow many of each quality level?\")\nprint(df['Quality'].value_counts().sort_index())","id":2,"options":{"autorun":"","classes":"","comment":"","context":"interactive","dpi":72,"fig-cap":"","fig-height":5,"fig-width":7,"label":"","message":"true","out-height":"","out-width":"700px","output":"true","read-only":"false","results":"markup","warning":"true"}},{"code":"\nimport matplotlib.pyplot as plt\n\n# Create charts for each water parameter\nfig, axes = plt.subplots(2, 3, figsize=(15, 10))\nfig.suptitle('Water Quality Parameters - Color Coded by Quality', fontsize=16, fontweight='bold')\n\nquality_colors = {'Excellent': 'green', 'Good': 'lightgreen', \n                  'Fair': 'orange', 'Poor': 'red'}\n\nparameters = ['pH', 'Dissolved_Oxygen', 'Turbidity', \n              'Temperature', 'Conductivity', 'Nitrates']\n\nfor idx, param in enumerate(parameters):\n    ax = axes[idx // 3, idx % 3]\n    \n    for quality in ['Excellent', 'Good', 'Fair', 'Poor']:\n        data_subset = df[df['Quality'] == quality][param]\n        ax.hist(data_subset, bins=15, alpha=0.6, \n                label=quality, color=quality_colors[quality])\n    \n    ax.set_xlabel(param, fontweight='bold')\n    ax.set_ylabel('Count')\n    ax.set_title(f'{param} Distribution')\n    ax.legend(fontsize=8)\n    ax.grid(True, alpha=0.3)\n\nplt.tight_layout()\nplt.show()\n\nprint(\"✓ Charts created!\")\nprint(\"\\n💡 Notice: Green = Excellent, Red = Poor\")\nprint(\"   Can you see patterns? Excellent water (green) tends to\")\nprint(\"   have pH around 7 and low turbidity!\")","id":3,"options":{"autorun":"","classes":"","code-fold":"true","code-summary":"Show code for creating charts","comment":"","context":"interactive","dpi":72,"fig-cap":"","fig-height":5,"fig-width":7,"label":"","message":"true","out-height":"","out-width":"700px","output":"true","read-only":"false","results":"markup","warning":"true"}},{"code":"correct = sum(predictions == y_test)\ntotal = len(y_test)\n\nprint(\"=\"*70)\nprint(\"🎯 TEST RESULTS\")\nprint(\"=\"*70)\nprint(f\"\\nThe AI got {correct} out of {total} predictions correct!\")\nprint(f\"That's {accuracy*100:.1f}% accuracy! 🎉\")\n\nprint(\"\\n\" + \"=\"*70)\nprint(\"\\nLet's look at the first 10 predictions:\")\nprint(\"=\"*70)\n\nfor i in range(10):\n    actual = y_test.iloc[i]\n    predicted = predictions[i]\n    status = \"✓ CORRECT\" if actual == predicted else \"✗ WRONG\"\n    print(f\"{i+1:2d}. AI said: {predicted:10s} | Actually: {actual:10s} | {status}\")\n\nprint(\"\\n💡 The AI learned the patterns! It's correct about 80-90% of the time.\")","id":4,"options":{"autorun":"","classes":"","comment":"","context":"interactive","dpi":72,"fig-cap":"","fig-height":5,"fig-width":7,"label":"","message":"true","out-height":"","out-width":"700px","output":"true","read-only":"false","results":"markup","warning":"true"}},{"code":"\nimport matplotlib.pyplot as plt\nimport numpy as np\n\nimportance = model.feature_importances_\nfeatures = X.columns\n\nimportance_data = sorted(zip(features, importance), key=lambda x: x[1], reverse=True)\nfeatures_sorted = [x[0] for x in importance_data]\nimportance_sorted = [x[1] for x in importance_data]\n\nprint(\"=\"*70)\nprint(\"🔍 WHAT THE AI LEARNED\")\nprint(\"=\"*70)\nprint(\"\\nImportance Rankings (higher = more important):\\n\")\n\nfor feature, score in importance_data:\n    bar = '█' * int(score * 50)\n    print(f\"{feature:20s} | {bar} {score:.3f}\")\n\n# Make a chart\nfig, ax = plt.subplots(figsize=(10, 6))\ncolors = plt.cm.viridis(np.linspace(0.3, 0.9, len(features_sorted)))\nbars = ax.barh(features_sorted, importance_sorted, color=colors)\n\nax.set_xlabel('Importance Score', fontweight='bold', fontsize=12)\nax.set_title('Which Measurements Matter Most?', fontsize=14, fontweight='bold')\nax.grid(True, alpha=0.3, axis='x')\n\nfor bar in bars:\n    width = bar.get_width()\n    ax.text(width, bar.get_y() + bar.get_height()/2, \n            f'{width:.3f}', ha='left', va='center', fontweight='bold')\n\nplt.tight_layout()\nplt.show()\n\nprint(\"\\n💡 These scores show which measurements help the AI decide quality.\")\nprint(\"   Higher scores = more important for making predictions!\")","id":5,"options":{"autorun":"","classes":"","code-fold":"true","code-summary":"Show code for feature importance analysis","comment":"","context":"interactive","dpi":72,"fig-cap":"","fig-height":5,"fig-width":7,"label":"","message":"true","out-height":"","out-width":"700px","output":"true","read-only":"false","results":"markup","warning":"true"}},{"code":"print(\"=\"*70)\nprint(\"🔬 YOUR TURN - TEST THE AI!\")\nprint(\"=\"*70)\n\n# 👉 CHANGE THESE NUMBERS to test different water! 👈\nyour_water_sample = {\n    'pH': 7.2,                  # Try numbers between 5 and 9\n    'Dissolved_Oxygen': 8.5,    # Try numbers between 3 and 12\n    'Turbidity': 3.0,           # Try numbers between 1 and 20\n    'Temperature': 21,          # Try numbers between 10 and 35\n    'Conductivity': 450,        # Try numbers between 200 and 900\n    'Nitrates': 2.5             # Try numbers between 0 and 12\n}\n\nprint(\"\\nYour Water Sample:\")\nprint(\"-\" * 70)\nfor measurement, value in your_water_sample.items():\n    print(f\"  {measurement:20s}: {value}\")\n\n# Ask the AI to predict\ntest_df = pd.DataFrame([your_water_sample])\nprediction = model.predict(test_df)[0]\nconfidence = model.predict_proba(test_df)[0]\n\nprint(\"\\n\" + \"=\"*70)\nprint(\"🎯 THE AI'S PREDICTION\")\nprint(\"=\"*70)\nprint(f\"\\nWater Quality: {prediction}\")\n\nprint(\"\\nHow confident is the AI?\")\nprint(\"-\" * 70)\nclasses = model.classes_\nfor cls, prob in zip(classes, confidence):\n    bar = '█' * int(prob * 40)\n    emoji = '👉' if cls == prediction else '  '\n    print(f\"{emoji} {cls:10s} | {bar:40s} {prob*100:5.1f}%\")\n\nprint(\"\\n\" + \"=\"*70)\nif prediction == 'Excellent':\n    print(\"✓ This water is EXCELLENT - safe for drinking! 💧\")\nelif prediction == 'Good':\n    print(\"✓ This water is GOOD - safe with basic treatment. 💧\")\nelif prediction == 'Fair':\n    print(\"⚠ This water is FAIR - needs treatment before use.\")\nelse:\n    print(\"⚠ This water is POOR - significant treatment required!\")","id":6,"options":{"autorun":"","classes":"","comment":"","context":"interactive","dpi":72,"fig-cap":"","fig-height":5,"fig-width":7,"label":"","message":"true","out-height":"","out-width":"700px","output":"true","read-only":"false","results":"markup","warning":"true"}},{"code":"# Four different water sources to test\ntest_sources = pd.DataFrame({\n    'Source': ['Mountain Spring', 'City Tap', 'Farm Pond', 'Ocean Inlet'],\n    'pH': [6.8, 7.5, 8.2, 8.1],\n    'Dissolved_Oxygen': [9.5, 7.0, 5.5, 8.0],\n    'Turbidity': [1.5, 3.5, 12.0, 4.0],\n    'Temperature': [15, 22, 26, 19],\n    'Conductivity': [300, 500, 700, 35000],\n    'Nitrates': [1.0, 3.5, 8.0, 0.5]\n})\n\nprint(\"Testing Water from Different Places:\")\nprint(\"=\"*70)\n\nX_test_sources = test_sources.drop('Source', axis=1)\npredictions_sources = model.predict(X_test_sources)\nprobabilities = model.predict_proba(X_test_sources)\n\nfor idx, source in enumerate(test_sources['Source']):\n    pred = predictions_sources[idx]\n    conf = probabilities[idx].max()\n    \n    if pred == 'Excellent':\n        emoji = '🌟'\n    elif pred == 'Good':\n        emoji = '✓'\n    elif pred == 'Fair':\n        emoji = '⚠'\n    else:\n        emoji = '❌'\n    \n    print(f\"\\n{emoji} {source}\")\n    print(f\"   Quality: {pred} (AI is {conf*100:.0f}% confident)\")\n    \n    row = test_sources.iloc[idx]\n    print(f\"   pH: {row['pH']:.1f} | Oxygen: {row['Dissolved_Oxygen']:.1f} | Turbidity: {row['Turbidity']:.1f}\")\n\nprint(\"\\n\" + \"=\"*70)\nprint(\"✓ The AI can analyze multiple samples instantly!\")","id":7,"options":{"autorun":"","classes":"","comment":"","context":"interactive","dpi":72,"fig-cap":"","fig-height":5,"fig-width":7,"label":"","message":"true","out-height":"","out-width":"700px","output":"true","read-only":"false","results":"markup","warning":"true"}},{"code":"print(\"🚀 READY FOR MORE?\")\nprint(\"=\"*70)\nprint()\nprint(\"Easy Challenges:\")\nprint(\"  1. Go back to Step 5 and try extreme water values\")\nprint(\"  2. Find a sample the AI gets wrong\")\nprint(\"  3. Which parameter changes predictions the most?\")\nprint()\nprint(\"Medium Challenges:\")\nprint(\"  4. What happens if you set Turbidity to 25?\")\nprint(\"  5. Can you create a 'perfect' water sample?\")\nprint(\"  6. Test water from YOUR local area!\")\nprint()\nprint(\"Advanced:\")\nprint(\"  7. What if we had MORE training samples?\")\nprint(\"  8. Could we add more measurements (like bacteria)?\")\nprint(\"  9. How would this work with REAL sensor data?\")\nprint()\nprint(\"=\"*70)","id":8,"options":{"autorun":"","classes":"","comment":"","context":"interactive","dpi":72,"fig-cap":"","fig-height":5,"fig-width":7,"label":"","message":"true","out-height":"","out-width":"700px","output":"true","read-only":"false","results":"markup","warning":"true"}}];
 
 
 </script>
@@ -447,11 +447,11 @@ globalThis._qpyodideGetInstance = function() {
   </li>  
   <li class="nav-item">
     <a class="nav-link active" href="./AAIC-Modules-Pyodide.html" aria-current="page"> 
-<span class="menu-text">Module 1</span></a>
+<span class="menu-text">Pyodide</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./AAIC-Modules-Thebe.qmd"> 
-<span class="menu-text">Module 2</span></a>
+    <a class="nav-link" href="./AAIC-Module-Thebe.html"> 
+<span class="menu-text">Thebe</span></a>
   </li>  
 </ul>
           </div> <!-- /navcollapse -->
@@ -480,8 +480,8 @@ globalThis._qpyodideGetInstance = function() {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Introduction to Machine Learning for Water Quality</h1>
-<p class="subtitle lead">Understanding CNNs with Interactive Python</p>
+<h1 class="title">Machine Learning for Water Quality Prediction</h1>
+<p class="subtitle lead">Train Your Own AI Model - No Coding Experience Needed!</p>
 </div>
 
 
@@ -498,15 +498,145 @@ globalThis._qpyodideGetInstance = function() {
 </header>
 
 
-<section id="your-first-interactive-code" class="level2">
-<h2 class="anchored" data-anchor-id="your-first-interactive-code">Your First Interactive Code</h2>
-<p>Try running this Python code in your browser:</p>
+<div style="background-color: #f0f8ff; padding: 20px; border-radius: 8px; border: 2px solid #4CAF50; margin: 20px 0;">
+<p><strong>⚙️ SETUP STEP:</strong> Click “Run Code” below to prepare the AI model (takes just a second!)</p>
+</div>
 <div id="qpyodide-insertion-location-1"></div>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
+<hr>
+<section id="welcome-to-machine-learning" class="level2">
+<h2 class="anchored" data-anchor-id="welcome-to-machine-learning">Welcome to Machine Learning! 🤖</h2>
+<p>Today you’ll use an <strong>actual AI model</strong> that predicts water quality. Once you run the setup above ⬆️, the AI will be trained on 200 water samples and ready to make predictions!</p>
+<section id="what-is-machine-learning" class="level3">
+<h3 class="anchored" data-anchor-id="what-is-machine-learning">What is Machine Learning?</h3>
+<p>Machine Learning is when computers <strong>learn from examples</strong> instead of following programmed rules. The AI you just prepared: 1. ✓ Learned from 200 water samples (the training data) 2. ✓ Found patterns about what makes water good or bad 3. ✓ Is ready to predict quality of new water samples!</p>
+<hr>
 </section>
-<section id="more-coming-soon" class="level2">
-<h2 class="anchored" data-anchor-id="more-coming-soon">More Coming Soon!</h2>
-<p>Check back later for new modules on pooling, feature maps, and real-world CNNs.</p>
+</section>
+<section id="step-1-look-at-our-water-data" class="level2">
+<h2 class="anchored" data-anchor-id="step-1-look-at-our-water-data">Step 1: Look at Our Water Data</h2>
+<p>We have 200 water samples with measurements like pH, oxygen levels, and turbidity (cloudiness). Each sample is labeled as Excellent, Good, Fair, or Poor quality.</p>
+<p>Click “Run Code” to see the first 10 samples:</p>
+<div id="qpyodide-insertion-location-2"></div>
+<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
+<p><strong>What you see:</strong> Each row is one water sample. The columns show measurements, and “Quality” tells us if that water is safe.</p>
+<hr>
+</section>
+<section id="step-2-visualize-the-water-data" class="level2">
+<h2 class="anchored" data-anchor-id="step-2-visualize-the-water-data">Step 2: Visualize the Water Data</h2>
+<p>Let’s see colorful charts to understand the patterns better:</p>
+<div id="qpyodide-insertion-location-3"></div>
+<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
+<p><strong>What you see:</strong> Six charts showing how water parameters relate to quality. Look for patterns - which measurements separate good water from bad water?</p>
+<hr>
+</section>
+<section id="step-3-how-good-is-our-ai" class="level2">
+<h2 class="anchored" data-anchor-id="step-3-how-good-is-our-ai">Step 3: How Good is Our AI?</h2>
+<p>We already trained the AI on 160 samples. Now let’s test it on 40 samples it has <strong>never seen before</strong>:</p>
+<div id="qpyodide-insertion-location-4"></div>
+<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
+<p><strong>What this means:</strong> Our AI correctly predicts water quality about 80-90% of the time - better than many humans could do by just looking at numbers!</p>
+<hr>
+</section>
+<section id="step-4-what-did-the-ai-learn" class="level2">
+<h2 class="anchored" data-anchor-id="step-4-what-did-the-ai-learn">Step 4: What Did the AI Learn?</h2>
+<p>Let’s see which measurements the AI thinks are most important:</p>
+<div id="qpyodide-insertion-location-5"></div>
+<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
+<p><strong>What this means:</strong> The AI figured out which measurements are most useful. This is like the AI saying “pH matters more than temperature” when checking water safety.</p>
+<hr>
+</section>
+<section id="step-5-try-it-yourself" class="level2">
+<h2 class="anchored" data-anchor-id="step-5-try-it-yourself">Step 5: Try It Yourself! 🔬</h2>
+<p>Now <strong>YOU</strong> can use the AI! Change the numbers below to test different water samples:</p>
+<div id="qpyodide-insertion-location-6"></div>
+<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
+<p><strong>Try these challenges:</strong> 1. <strong>Clean water:</strong> pH=7.0, Dissolved_Oxygen=10, Turbidity=1.5, Temperature=20, Conductivity=400, Nitrates=1 2. <strong>Polluted water:</strong> pH=5.5, Dissolved_Oxygen=4.0, Turbidity=18, Temperature=30, Conductivity=800, Nitrates=12 3. <strong>Your own values!</strong> What happens if pH is really high? Or turbidity is super low?</p>
+<hr>
+</section>
+<section id="step-6-test-multiple-samples-at-once" class="level2">
+<h2 class="anchored" data-anchor-id="step-6-test-multiple-samples-at-once">Step 6: Test Multiple Samples at Once</h2>
+<p>Let’s compare water from different sources:</p>
+<div id="qpyodide-insertion-location-7"></div>
+<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
+<p><strong>What you see:</strong> The AI can quickly analyze water from many places at once. This is how it could be used in real environmental monitoring!</p>
+<hr>
+</section>
+<section id="what-youve-learned" class="level2">
+<h2 class="anchored" data-anchor-id="what-youve-learned">What You’ve Learned! 🎉</h2>
+<p>Congratulations! You just:</p>
+<ol type="1">
+<li>✓ <strong>Saw real water quality data</strong> with 200 samples</li>
+<li>✓ <strong>Used an actual AI model</strong> (Random Forest with 100 trees)</li>
+<li>✓ <strong>Tested the AI</strong> and found it’s 80-90% accurate</li>
+<li>✓ <strong>Discovered what’s important</strong> (which measurements matter most)</li>
+<li>✓ <strong>Made your own predictions</strong> by changing values</li>
+<li>✓ <strong>Tested multiple samples</strong> at once</li>
+</ol>
+<hr>
+</section>
+<section id="understanding-random-forest-ai" class="level2">
+<h2 class="anchored" data-anchor-id="understanding-random-forest-ai">Understanding Random Forest AI</h2>
+<p><strong>What is a Random Forest?</strong></p>
+<p>Think of it like asking 100 experts for their opinion: - Each “expert” is a decision tree - Each tree looks at the water measurements differently - They all vote on the quality - The majority vote wins!</p>
+<p>This is why it’s called a “forest” - it’s a collection of decision trees working together.</p>
+<p><strong>Why is it good?</strong> - ✓ More accurate than a single decision tree - ✓ Doesn’t get fooled by unusual samples - ✓ Can handle complex patterns - ✓ Shows which measurements are most important</p>
+<hr>
+</section>
+<section id="real-world-applications" class="level2">
+<h2 class="anchored" data-anchor-id="real-world-applications">Real-World Applications</h2>
+<p>Where could this technology be used?</p>
+<p>🌊 <strong>River Monitoring</strong> - Sensors measure water constantly - AI predicts quality every hour - Alerts sent if quality drops</p>
+<p>🏭 <strong>Factory Compliance</strong> - Check discharge water quality - Ensure regulations are met - Automatic reporting</p>
+<p>🏊 <strong>Beach Safety</strong> - Test swimming areas daily - Predict if beaches are safe - Protect public health</p>
+<p>🌾 <strong>Agriculture</strong> - Monitor irrigation water - Optimize crop watering - Prevent contamination</p>
+<hr>
+</section>
+<section id="key-concepts-you-now-understand" class="level2">
+<h2 class="anchored" data-anchor-id="key-concepts-you-now-understand">Key Concepts You Now Understand</h2>
+<p><strong>Training Data:</strong> The examples the AI learns from (our 160 samples)</p>
+<p><strong>Testing Data:</strong> New examples to check if learning worked (our 40 samples)</p>
+<p><strong>Features:</strong> The measurements we use to predict (pH, oxygen, turbidity, etc.)</p>
+<p><strong>Accuracy:</strong> How often the AI is correct (we got ~80-90%)</p>
+<p><strong>Feature Importance:</strong> Which measurements matter most for predictions</p>
+<p><strong>Confidence:</strong> How sure the AI is about its prediction (shown as percentages)</p>
+<hr>
+</section>
+<section id="next-steps-challenges" class="level2">
+<h2 class="anchored" data-anchor-id="next-steps-challenges">Next Steps &amp; Challenges</h2>
+<div id="qpyodide-insertion-location-8"></div>
+<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
+<hr>
+</section>
+<section id="discussion-questions" class="level2">
+<h2 class="anchored" data-anchor-id="discussion-questions">Discussion Questions</h2>
+<p>Think about these with your classmates:</p>
+<ol type="1">
+<li><p><strong>Accuracy:</strong> Why isn’t our AI 100% correct? Is that okay?</p></li>
+<li><p><strong>Importance:</strong> Why might dissolved oxygen be more important than temperature for predicting quality?</p></li>
+<li><p><strong>Real World:</strong> What challenges would we face using this for actual rivers or lakes?</p></li>
+<li><p><strong>Trust:</strong> Would you trust this AI to make decisions about water safety? Why or why not?</p></li>
+<li><p><strong>Improvement:</strong> How could we make the AI better? More data? Different measurements?</p></li>
+<li><p><strong>Ethics:</strong> Should AI make environmental decisions without human oversight?</p></li>
+</ol>
+<hr>
+</section>
+<section id="summary" class="level2">
+<h2 class="anchored" data-anchor-id="summary">Summary</h2>
+<p>Today you used <strong>real machine learning</strong> - the same technology used by: - 🔍 Google (for search and recommendations) - 📺 Netflix (for suggesting shows) - 🏥 Hospitals (for diagnosing diseases) - 🌍 Environmental agencies (for monitoring pollution)</p>
+<p><strong>You learned that AI:</strong> - Learns from examples (not programmed rules) - Can find patterns humans might miss - Gets better with more training data - Isn’t perfect, but is very helpful - Shows us what’s important (feature importance)</p>
+<p><strong>Most importantly:</strong> You did this all in your web browser! No special software, no downloads, no setup. That’s the power of modern technology! 🚀</p>
+<hr>
+</section>
+<section id="want-to-learn-more" class="level2">
+<h2 class="anchored" data-anchor-id="want-to-learn-more">Want to Learn More?</h2>
+<ul>
+<li><strong>Google Colab:</strong> Try neural networks with GPUs (free!)</li>
+<li><strong>Kaggle:</strong> Find real water quality datasets to practice with</li>
+<li><strong>Scikit-learn:</strong> Explore other AI algorithms</li>
+<li><strong>Real Sensors:</strong> Research how actual water quality monitors work</li>
+</ul>
+<p><strong>Remember:</strong> Every AI expert started as a beginner. You just took your first step! 🌟</p>
 
 
 </section>

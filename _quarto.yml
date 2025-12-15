@@ -8,9 +8,9 @@ website:
       - href: index.qmd
         text: Home
       - href: AAIC-Modules-Pyodide.qmd
-        text: Module 1
-      - href: AAIC-Modules-Thebe.qmd
-        text: Module 2
+        text: Pyodide
+      - href: AAIC-Module-Thebe.qmd
+        text: Thebe
 
 format:
   html:

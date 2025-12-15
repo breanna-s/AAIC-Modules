@@ -9,7 +9,7 @@ format: html
   requestKernel: true,
   binderOptions: {
     repo: "breanna-s/AAIC-Modules",
-    ref: "main"  // or "master" depending on your default branch
+    ref: "main"
   },
   kernelOptions: {
     name: "python3",
@@ -23,7 +23,7 @@ format: html
 <!-- Load Thebe library -->
 <script src="https://unpkg.com/thebe@latest/lib/index.js"></script>
 
-<!-- Optional: Custom styling -->
+<!-- Custom styling for hidden code with toggle and run button -->
 <style>
 .thebe-activate-button {
   background-color: #0066cc;
@@ -33,7 +33,93 @@ format: html
   border-radius: 5px;
   cursor: pointer;
 }
+
+/* Hide code by default but keep structure */
+.hidden-code pre {
+  display: none;
+}
+
+/* Show code when toggled */
+.hidden-code.show-code pre {
+  display: block;
+}
+
+/* Style for toggle button */
+.toggle-code-btn {
+  background-color: #28a745;
+  color: white;
+  padding: 5px 15px;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+  font-size: 12px;
+  margin-bottom: 5px;
+}
+
+/* Keep run button visible */
+.thebelab-button {
+  display: inline-block !important;
+}
+
+/* Alternative: Make code semi-transparent */
+.faded-code pre {
+  opacity: 0.3;
+  pointer-events: none;
+}
+
+.faded-code .thebelab-button {
+  opacity: 1;
+  pointer-events: all;
+}
+
+/* Alternative: Collapsed code with ellipsis */
+.collapsed-code pre {
+  max-height: 30px;
+  overflow: hidden;
+  position: relative;
+}
+
+.collapsed-code pre::after {
+  content: "...";
+  position: absolute;
+  bottom: 0;
+  right: 10px;
+  background: white;
+  padding-left: 20px;
+}
+
+.collapsed-code.expanded pre {
+  max-height: none;
+}
+
+.collapsed-code.expanded pre::after {
+  display: none;
+}
 </style>
+
+<script>
+// Function to toggle code visibility
+function toggleCode(buttonId, containerId) {
+  const button = document.getElementById(buttonId);
+  const container = document.getElementById(containerId);
+  
+  button.addEventListener('click', function() {
+    container.classList.toggle('show-code');
+    if (container.classList.contains('show-code')) {
+      button.textContent = 'Hide Code';
+    } else {
+      button.textContent = 'Show Code';
+    }
+  });
+}
+
+// Initialize toggles after page load
+document.addEventListener('DOMContentLoaded', function() {
+  toggleCode('toggle1', 'code1');
+  toggleCode('toggle2', 'code2');
+  toggleCode('toggle3', 'code3');
+});
+</script>
 
 ## Your Content
 
@@ -43,8 +129,140 @@ Click the button below to activate the cloud kernel:
 <div class="thebe-activate"></div>
 <div class="thebe-status"></div>
 
-<!-- Interactive code cells -->
+---
+
+## Option 1: Hidden Code with Toggle Button
+
+Students can run the code without seeing it, but can click "Show Code" if they want to see it.
+
+<button id="toggle1" class="toggle-code-btn">Show Code</button>
+
+<div id="code1" class="hidden-code">
 <pre data-executable="true" data-language="python">
 import numpy as np
-print("Code runs in the cloud!")
+import matplotlib.pyplot as plt
+
+# Generate sample water quality data
+ph_levels = np.random.normal(7.0, 0.5, 100)
+print(f"Average pH: {np.mean(ph_levels):.2f}")
+print(f"pH Range: {np.min(ph_levels):.2f} - {np.max(ph_levels):.2f}")
+
+# Plot histogram
+plt.figure(figsize=(8, 5))
+plt.hist(ph_levels, bins=20, edgecolor='black', alpha=0.7)
+plt.xlabel('pH Level')
+plt.ylabel('Frequency')
+plt.title('Distribution of Water pH Levels')
+plt.axvline(7.0, color='red', linestyle='--', label='Neutral pH')
+plt.legend()
+plt.grid(True, alpha=0.3)
+plt.show()
 </pre>
+</div>
+
+---
+
+## Option 2: Completely Hidden Code (No Toggle)
+
+Students just see the run button and output. Code is completely hidden.
+
+<div style="display: none;">
+<pre data-executable="true" data-language="python">
+import numpy as np
+
+# Calculate water quality index
+turbidity = np.random.uniform(1, 10)
+dissolved_oxygen = np.random.uniform(5, 12)
+
+wqi = (dissolved_oxygen * 0.6 + (10 - turbidity) * 0.4) * 10
+
+print(f"Water Quality Index: {wqi:.1f}")
+if wqi > 80:
+    print("Status: Excellent")
+elif wqi > 60:
+    print("Status: Good")
+elif wqi > 40:
+    print("Status: Fair")
+else:
+    print("Status: Poor")
+</pre>
+</div>
+
+---
+
+## Option 3: Faded/Blurred Code
+
+Code is visible but de-emphasized. Still runnable.
+
+<div class="faded-code">
+<pre data-executable="true" data-language="python">
+import numpy as np
+print("This code is faded but runnable!")
+data = np.random.rand(5)
+print(f"Random data: {data}")
+</pre>
+</div>
+
+---
+
+## Option 4: Collapsed Code with Expand Option
+
+Shows first line with "..." and expands on click.
+
+<button id="toggle3" class="toggle-code-btn" onclick="document.getElementById('code3').classList.toggle('expanded'); this.textContent = document.getElementById('code3').classList.contains('expanded') ? 'Collapse' : 'Expand';">Expand</button>
+
+<div id="code3" class="collapsed-code">
+<pre data-executable="true" data-language="python">
+import numpy as np
+import matplotlib.pyplot as plt
+
+# Temperature data
+temperatures = np.random.normal(20, 3, 50)
+print(f"Average temperature: {np.mean(temperatures):.1f}°C")
+
+plt.figure(figsize=(8, 4))
+plt.plot(temperatures, marker='o', linestyle='-', markersize=4)
+plt.xlabel('Measurement')
+plt.ylabel('Temperature (°C)')
+plt.title('Water Temperature Over Time')
+plt.grid(True)
+plt.show()
+</pre>
+</div>
+
+---
+
+## Recommended: Clean Version with Just Run Buttons
+
+This is probably what you want - descriptive text with run buttons, no visible code:
+
+### Analyze pH Levels
+
+Click run to analyze the pH distribution:
+
+<div style="display: none;">
+<pre data-executable="true" data-language="python">
+import numpy as np
+print("Analyzing pH levels...")
+ph_data = np.random.normal(7.2, 0.4, 50)
+print(f"Mean pH: {np.mean(ph_data):.2f}")
+print(f"Standard deviation: {np.std(ph_data):.2f}")
+print(f"Safe range (6.5-8.5): {'Yes' if 6.5 <= np.mean(ph_data) <= 8.5 else 'No'}")
+</pre>
+</div>
+
+### Check Dissolved Oxygen
+
+Click run to check oxygen levels:
+
+<div style="display: none;">
+<pre data-executable="true" data-language="python">
+import numpy as np
+do_levels = np.random.uniform(7, 11, 30)
+print(f"Dissolved Oxygen: {np.mean(do_levels):.2f} mg/L")
+if np.mean(do_levels) >= 8:
+    print("✓ Healthy oxygen levels for aquatic life")
+else:
+    print("⚠ Low oxygen levels - monitor closely")
+</pre>
+</div>

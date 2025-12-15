@@ -11,21 +11,21 @@
     "href": "AAIC-Module-Thebe.html",
     "title": "Interactive Water Quality Analysis",
     "section": "",
-    "text": "Click the button below to activate the cloud kernel:\n\n\n\n\n\n\n\n\nimport numpy as np\nprint(\"Code runs in the cloud!\")"
+    "text": "Click the button below to activate the cloud kernel:"
   },
   {
     "objectID": "AAIC-Module-Thebe.html#your-content",
     "href": "AAIC-Module-Thebe.html#your-content",
     "title": "Interactive Water Quality Analysis",
     "section": "",
-    "text": "Click the button below to activate the cloud kernel:\n\n\n\n\n\n\n\n\nimport numpy as np\nprint(\"Code runs in the cloud!\")"
+    "text": "Click the button below to activate the cloud kernel:"
   },
   {
     "objectID": "AAIC-Modules-Pyodide.html",
     "href": "AAIC-Modules-Pyodide.html",
-    "title": "Introduction to Machine Learning for Water Quality",
+    "title": "Machine Learning for Water Quality Prediction",
     "section": "",
-    "text": "Try running this Python code in your browser:\n\nPlease enable JavaScript to experience the dynamic code cell content on this page."
+    "text": "⚙️ SETUP STEP: Click “Run Code” below to prepare the AI model (takes just a second!)"
   },
   {
     "objectID": "AAIC-Modules-Pyodide.html#your-first-interactive-code",
@@ -40,5 +40,278 @@
     "title": "Introduction to Machine Learning for Water Quality",
     "section": "More Coming Soon!",
     "text": "More Coming Soon!\nCheck back later for new modules on pooling, feature maps, and real-world CNNs."
+  },
+  {
+    "objectID": "AAIC-Modules-Pyodide.html#welcome-to-real-machine-learning",
+    "href": "AAIC-Modules-Pyodide.html#welcome-to-real-machine-learning",
+    "title": "Machine Learning for Water Quality Prediction",
+    "section": "",
+    "text": "This lesson demonstrates actual machine learning using scikit-learn’s Random Forest algorithm. Everything runs right in your browser - no installation needed!\n\n\n\nHow to train a real ML model\nUnderstanding Random Forest classifiers\nModel evaluation and accuracy testing\nFeature importance analysis\nMaking predictions on new data"
+  },
+  {
+    "objectID": "AAIC-Modules-Pyodide.html#part-1-generate-training-data",
+    "href": "AAIC-Modules-Pyodide.html#part-1-generate-training-data",
+    "title": "Machine Learning for Water Quality Prediction",
+    "section": "Part 1: Generate Training Data",
+    "text": "Part 1: Generate Training Data\nFirst, let’s create a realistic water quality dataset. In real projects, this would come from sensors or lab measurements.\n\nPlease enable JavaScript to experience the dynamic code cell content on this page."
+  },
+  {
+    "objectID": "AAIC-Modules-Pyodide.html#part-2-visualize-the-dataset",
+    "href": "AAIC-Modules-Pyodide.html#part-2-visualize-the-dataset",
+    "title": "Machine Learning for Water Quality Prediction",
+    "section": "Part 2: Visualize the Dataset",
+    "text": "Part 2: Visualize the Dataset\nLet’s explore our data before training the model:\n\nPlease enable JavaScript to experience the dynamic code cell content on this page."
+  },
+  {
+    "objectID": "AAIC-Modules-Pyodide.html#part-3-train-a-random-forest-classifier",
+    "href": "AAIC-Modules-Pyodide.html#part-3-train-a-random-forest-classifier",
+    "title": "Machine Learning for Water Quality Prediction",
+    "section": "Part 3: Train a Random Forest Classifier",
+    "text": "Part 3: Train a Random Forest Classifier\nNow let’s train a real machine learning model using scikit-learn!\n\nPlease enable JavaScript to experience the dynamic code cell content on this page."
+  },
+  {
+    "objectID": "AAIC-Modules-Pyodide.html#part-4-evaluate-model-performance",
+    "href": "AAIC-Modules-Pyodide.html#part-4-evaluate-model-performance",
+    "title": "Machine Learning for Water Quality Prediction",
+    "section": "Part 4: Evaluate Model Performance",
+    "text": "Part 4: Evaluate Model Performance\nLet’s see how well our model performs on data it hasn’t seen before:\n\nPlease enable JavaScript to experience the dynamic code cell content on this page."
+  },
+  {
+    "objectID": "AAIC-Modules-Pyodide.html#part-5-confusion-matrix-visualization",
+    "href": "AAIC-Modules-Pyodide.html#part-5-confusion-matrix-visualization",
+    "title": "Machine Learning for Water Quality Prediction",
+    "section": "Part 5: Confusion Matrix Visualization",
+    "text": "Part 5: Confusion Matrix Visualization\nA confusion matrix shows where the model makes mistakes:\n\nPlease enable JavaScript to experience the dynamic code cell content on this page."
+  },
+  {
+    "objectID": "AAIC-Modules-Pyodide.html#part-6-feature-importance-analysis",
+    "href": "AAIC-Modules-Pyodide.html#part-6-feature-importance-analysis",
+    "title": "Machine Learning for Water Quality Prediction",
+    "section": "Part 6: Feature Importance Analysis",
+    "text": "Part 6: Feature Importance Analysis\nWhich water parameters are most important for predictions?\n\nPlease enable JavaScript to experience the dynamic code cell content on this page."
+  },
+  {
+    "objectID": "AAIC-Modules-Pyodide.html#part-7-interactive-prediction-tool",
+    "href": "AAIC-Modules-Pyodide.html#part-7-interactive-prediction-tool",
+    "title": "Machine Learning for Water Quality Prediction",
+    "section": "Part 7: Interactive Prediction Tool",
+    "text": "Part 7: Interactive Prediction Tool\nNow YOU can predict water quality! Enter your own values:\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\nChallenge: Try these scenarios: - Polluted water: pH=5.5, DO=4.0, Turbidity=18, Temp=30, Conductivity=800, Nitrates=12 - Perfect water: pH=7.0, DO=10, Turbidity=1.5, Temp=20, Conductivity=400, Nitrates=1 - Your own values!"
+  },
+  {
+    "objectID": "AAIC-Modules-Pyodide.html#part-8-batch-predictions",
+    "href": "AAIC-Modules-Pyodide.html#part-8-batch-predictions",
+    "title": "Machine Learning for Water Quality Prediction",
+    "section": "Part 8: Batch Predictions",
+    "text": "Part 8: Batch Predictions\nTest multiple samples at once:\n\nPlease enable JavaScript to experience the dynamic code cell content on this page."
+  },
+  {
+    "objectID": "AAIC-Modules-Pyodide.html#part-9-model-insights",
+    "href": "AAIC-Modules-Pyodide.html#part-9-model-insights",
+    "title": "Machine Learning for Water Quality Prediction",
+    "section": "Part 9: Model Insights",
+    "text": "Part 9: Model Insights\nUnderstanding how Random Forest works:\n\nPlease enable JavaScript to experience the dynamic code cell content on this page."
+  },
+  {
+    "objectID": "AAIC-Modules-Pyodide.html#what-weve-accomplished",
+    "href": "AAIC-Modules-Pyodide.html#what-weve-accomplished",
+    "title": "Machine Learning for Water Quality Prediction",
+    "section": "What We’ve Accomplished! 🎉",
+    "text": "What We’ve Accomplished! 🎉\nIn this lesson, you’ve learned to:\n\n✓ Generate realistic training data for water quality\n✓ Train a real ML model using Random Forest algorithm\n✓ Evaluate model performance with accuracy metrics\n✓ Visualize results with confusion matrices\n✓ Analyze feature importance to understand what matters most\n✓ Make predictions on new water samples\n✓ Understand model internals and how Random Forest works"
+  },
+  {
+    "objectID": "AAIC-Modules-Pyodide.html#key-takeaways",
+    "href": "AAIC-Modules-Pyodide.html#key-takeaways",
+    "title": "Machine Learning for Water Quality Prediction",
+    "section": "Key Takeaways",
+    "text": "Key Takeaways\n\nRandom Forest Advantages\n\nEnsemble method combining multiple decision trees\nReduces overfitting through randomization\nProvides reliable predictions with confidence scores\nShows which features are most important\n\n\n\nReal-World Applications\n\nEnvironmental Monitoring: Automated water quality assessment\nEarly Warning Systems: Detect pollution events quickly\nResource Management: Prioritize testing locations\nRegulatory Compliance: Ensure standards are met"
+  },
+  {
+    "objectID": "AAIC-Modules-Pyodide.html#next-steps",
+    "href": "AAIC-Modules-Pyodide.html#next-steps",
+    "title": "Machine Learning for Water Quality Prediction",
+    "section": "Next Steps",
+    "text": "Next Steps\n\nPlease enable JavaScript to experience the dynamic code cell content on this page."
+  },
+  {
+    "objectID": "AAIC-Modules-Pyodide.html#discussion-questions",
+    "href": "AAIC-Modules-Pyodide.html#discussion-questions",
+    "title": "Machine Learning for Water Quality Prediction",
+    "section": "Discussion Questions",
+    "text": "Discussion Questions\nThink about these with your classmates:\n\nAccuracy: Why isn’t our AI 100% correct? Is that okay?\nImportance: Why might dissolved oxygen be more important than temperature for predicting quality?\nReal World: What challenges would we face using this for actual rivers or lakes?\nTrust: Would you trust this AI to make decisions about water safety? Why or why not?\nImprovement: How could we make the AI better? More data? Different measurements?\nEthics: Should AI make environmental decisions without human oversight?"
+  },
+  {
+    "objectID": "AAIC-Modules-Pyodide.html#summary",
+    "href": "AAIC-Modules-Pyodide.html#summary",
+    "title": "Machine Learning for Water Quality Prediction",
+    "section": "Summary",
+    "text": "Summary\nToday you used real machine learning - the same technology used by: - 🔍 Google (for search and recommendations) - 📺 Netflix (for suggesting shows) - 🏥 Hospitals (for diagnosing diseases) - 🌍 Environmental agencies (for monitoring pollution)\nYou learned that AI: - Learns from examples (not programmed rules) - Can find patterns humans might miss - Gets better with more training data - Isn’t perfect, but is very helpful - Shows us what’s important (feature importance)\nMost importantly: You did this all in your web browser! No special software, no downloads, no setup. That’s the power of modern technology! 🚀"
+  },
+  {
+    "objectID": "AAIC-Modules-Pyodide.html#additional-resources",
+    "href": "AAIC-Modules-Pyodide.html#additional-resources",
+    "title": "Machine Learning for Water Quality Prediction",
+    "section": "Additional Resources",
+    "text": "Additional Resources\nWant to learn more about machine learning?\n\nScikit-learn Documentation: https://scikit-learn.org\nRandom Forest Guide: https://scikit-learn.org/stable/modules/ensemble.html\nWater Quality Standards: EPA guidelines for parameters\nAdvanced ML: Try deep learning with TensorFlow on Google Colab!"
+  },
+  {
+    "objectID": "AAIC-Modules-Pyodide.html#welcome-to-machine-learning",
+    "href": "AAIC-Modules-Pyodide.html#welcome-to-machine-learning",
+    "title": "Machine Learning for Water Quality Prediction",
+    "section": "Welcome to Machine Learning! 🤖",
+    "text": "Welcome to Machine Learning! 🤖\nToday you’ll use an actual AI model that predicts water quality. Once you run the setup above ⬆️, the AI will be trained on 200 water samples and ready to make predictions!\n\nWhat is Machine Learning?\nMachine Learning is when computers learn from examples instead of following programmed rules. The AI you just prepared: 1. ✓ Learned from 200 water samples (the training data) 2. ✓ Found patterns about what makes water good or bad 3. ✓ Is ready to predict quality of new water samples!"
+  },
+  {
+    "objectID": "AAIC-Modules-Pyodide.html#step-1-look-at-our-water-data",
+    "href": "AAIC-Modules-Pyodide.html#step-1-look-at-our-water-data",
+    "title": "Machine Learning for Water Quality Prediction",
+    "section": "Step 1: Look at Our Water Data",
+    "text": "Step 1: Look at Our Water Data\nWe have 200 water samples with measurements like pH, oxygen levels, and turbidity (cloudiness). Each sample is labeled as Excellent, Good, Fair, or Poor quality.\nClick “Run Code” to see the first 10 samples:\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\nWhat you see: Each row is one water sample. The columns show measurements, and “Quality” tells us if that water is safe."
+  },
+  {
+    "objectID": "AAIC-Modules-Pyodide.html#step-2-visualize-the-water-data",
+    "href": "AAIC-Modules-Pyodide.html#step-2-visualize-the-water-data",
+    "title": "Machine Learning for Water Quality Prediction",
+    "section": "Step 2: Visualize the Water Data",
+    "text": "Step 2: Visualize the Water Data\nLet’s see colorful charts to understand the patterns better:\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\nWhat you see: Six charts showing how water parameters relate to quality. Look for patterns - which measurements separate good water from bad water?"
+  },
+  {
+    "objectID": "AAIC-Modules-Pyodide.html#step-3-train-the-ai-model",
+    "href": "AAIC-Modules-Pyodide.html#step-3-train-the-ai-model",
+    "title": "Machine Learning for Water Quality Prediction",
+    "section": "Step 3: Train the AI Model! 🧠",
+    "text": "Step 3: Train the AI Model! 🧠\nThis is where the magic happens! We’ll teach the computer to recognize patterns:\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\nWhat just happened: The computer looked at 160 water samples and learned patterns. For example, it learned that “if pH is around 7 AND oxygen is high AND turbidity is low, then quality is probably Excellent.”"
+  },
+  {
+    "objectID": "AAIC-Modules-Pyodide.html#step-4-test-the-ais-knowledge",
+    "href": "AAIC-Modules-Pyodide.html#step-4-test-the-ais-knowledge",
+    "title": "Machine Learning for Water Quality Prediction",
+    "section": "Step 4: Test the AI’s Knowledge",
+    "text": "Step 4: Test the AI’s Knowledge\nLet’s see how accurate our AI is on water it has NEVER seen before:\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\nWhat you see: Our AI correctly predicts water quality about 80-90% of the time. That’s better than many humans could do by just looking at numbers!"
+  },
+  {
+    "objectID": "AAIC-Modules-Pyodide.html#step-5-what-did-the-ai-learn",
+    "href": "AAIC-Modules-Pyodide.html#step-5-what-did-the-ai-learn",
+    "title": "Machine Learning for Water Quality Prediction",
+    "section": "Step 5: What Did the AI Learn?",
+    "text": "Step 5: What Did the AI Learn?\nLet’s see which measurements the AI thinks are most important:\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\nWhat this means: The AI figured out which water measurements are most useful for predicting quality. This is like saying “pH matters more than temperature” when checking water safety."
+  },
+  {
+    "objectID": "AAIC-Modules-Pyodide.html#step-6-try-it-yourself",
+    "href": "AAIC-Modules-Pyodide.html#step-6-try-it-yourself",
+    "title": "Machine Learning for Water Quality Prediction",
+    "section": "Step 6: Try It Yourself! 🔬",
+    "text": "Step 6: Try It Yourself! 🔬\nNow YOU can use the AI! Change the numbers below to test different water samples:\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\nTry these challenges: 1. Clean water: pH=7.0, Dissolved_Oxygen=10, Turbidity=1.5, Temperature=20, Conductivity=400, Nitrates=1 2. Polluted water: pH=5.5, Dissolved_Oxygen=4.0, Turbidity=18, Temperature=30, Conductivity=800, Nitrates=12 3. Your own values! What happens if pH is really high? Or turbidity is super low?"
+  },
+  {
+    "objectID": "AAIC-Modules-Pyodide.html#step-7-test-multiple-samples-at-once",
+    "href": "AAIC-Modules-Pyodide.html#step-7-test-multiple-samples-at-once",
+    "title": "Machine Learning for Water Quality Prediction",
+    "section": "Step 7: Test Multiple Samples at Once",
+    "text": "Step 7: Test Multiple Samples at Once\nLet’s compare water from different sources:\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\nWhat you see: The AI can quickly analyze water from many places at once. This is how it could be used in real environmental monitoring!"
+  },
+  {
+    "objectID": "AAIC-Modules-Pyodide.html#what-youve-learned",
+    "href": "AAIC-Modules-Pyodide.html#what-youve-learned",
+    "title": "Machine Learning for Water Quality Prediction",
+    "section": "What You’ve Learned! 🎉",
+    "text": "What You’ve Learned! 🎉\nCongratulations! You just:\n\n✓ Saw real water quality data with 200 samples\n✓ Used an actual AI model (Random Forest with 100 trees)\n✓ Tested the AI and found it’s 80-90% accurate\n✓ Discovered what’s important (which measurements matter most)\n✓ Made your own predictions by changing values\n✓ Tested multiple samples at once"
+  },
+  {
+    "objectID": "AAIC-Modules-Pyodide.html#understanding-random-forest-ai",
+    "href": "AAIC-Modules-Pyodide.html#understanding-random-forest-ai",
+    "title": "Machine Learning for Water Quality Prediction",
+    "section": "Understanding Random Forest AI",
+    "text": "Understanding Random Forest AI\nWhat is a Random Forest?\nThink of it like asking 100 experts for their opinion: - Each “expert” is a decision tree - Each tree looks at the water measurements differently - They all vote on the quality - The majority vote wins!\nThis is why it’s called a “forest” - it’s a collection of decision trees working together.\nWhy is it good? - ✓ More accurate than a single decision tree - ✓ Doesn’t get fooled by unusual samples - ✓ Can handle complex patterns - ✓ Shows which measurements are most important"
+  },
+  {
+    "objectID": "AAIC-Modules-Pyodide.html#real-world-applications",
+    "href": "AAIC-Modules-Pyodide.html#real-world-applications",
+    "title": "Machine Learning for Water Quality Prediction",
+    "section": "Real-World Applications",
+    "text": "Real-World Applications\nWhere could this technology be used?\n🌊 River Monitoring - Sensors measure water constantly - AI predicts quality every hour - Alerts sent if quality drops\n🏭 Factory Compliance - Check discharge water quality - Ensure regulations are met - Automatic reporting\n🏊 Beach Safety - Test swimming areas daily - Predict if beaches are safe - Protect public health\n🌾 Agriculture - Monitor irrigation water - Optimize crop watering - Prevent contamination"
+  },
+  {
+    "objectID": "AAIC-Modules-Pyodide.html#key-concepts-you-now-understand",
+    "href": "AAIC-Modules-Pyodide.html#key-concepts-you-now-understand",
+    "title": "Machine Learning for Water Quality Prediction",
+    "section": "Key Concepts You Now Understand",
+    "text": "Key Concepts You Now Understand\nTraining Data: The examples the AI learns from (our 160 samples)\nTesting Data: New examples to check if learning worked (our 40 samples)\nFeatures: The measurements we use to predict (pH, oxygen, turbidity, etc.)\nAccuracy: How often the AI is correct (we got ~80-90%)\nFeature Importance: Which measurements matter most for predictions\nConfidence: How sure the AI is about its prediction (shown as percentages)"
+  },
+  {
+    "objectID": "AAIC-Modules-Pyodide.html#next-steps-challenges",
+    "href": "AAIC-Modules-Pyodide.html#next-steps-challenges",
+    "title": "Machine Learning for Water Quality Prediction",
+    "section": "Next Steps & Challenges",
+    "text": "Next Steps & Challenges\n\nPlease enable JavaScript to experience the dynamic code cell content on this page."
+  },
+  {
+    "objectID": "AAIC-Modules-Pyodide.html#want-to-learn-more",
+    "href": "AAIC-Modules-Pyodide.html#want-to-learn-more",
+    "title": "Machine Learning for Water Quality Prediction",
+    "section": "Want to Learn More?",
+    "text": "Want to Learn More?\n\nGoogle Colab: Try neural networks with GPUs (free!)\nKaggle: Find real water quality datasets to practice with\nScikit-learn: Explore other AI algorithms\nReal Sensors: Research how actual water quality monitors work\n\nRemember: Every AI expert started as a beginner. You just took your first step! 🌟"
+  },
+  {
+    "objectID": "AAIC-Modules-Pyodide.html#step-3-how-good-is-our-ai",
+    "href": "AAIC-Modules-Pyodide.html#step-3-how-good-is-our-ai",
+    "title": "Machine Learning for Water Quality Prediction",
+    "section": "Step 3: How Good is Our AI?",
+    "text": "Step 3: How Good is Our AI?\nWe already trained the AI on 160 samples. Now let’s test it on 40 samples it has never seen before:\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\nWhat this means: Our AI correctly predicts water quality about 80-90% of the time - better than many humans could do by just looking at numbers!"
+  },
+  {
+    "objectID": "AAIC-Modules-Pyodide.html#step-4-what-did-the-ai-learn",
+    "href": "AAIC-Modules-Pyodide.html#step-4-what-did-the-ai-learn",
+    "title": "Machine Learning for Water Quality Prediction",
+    "section": "Step 4: What Did the AI Learn?",
+    "text": "Step 4: What Did the AI Learn?\nLet’s see which measurements the AI thinks are most important:\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\nWhat this means: The AI figured out which measurements are most useful. This is like the AI saying “pH matters more than temperature” when checking water safety."
+  },
+  {
+    "objectID": "AAIC-Modules-Pyodide.html#step-5-try-it-yourself",
+    "href": "AAIC-Modules-Pyodide.html#step-5-try-it-yourself",
+    "title": "Machine Learning for Water Quality Prediction",
+    "section": "Step 5: Try It Yourself! 🔬",
+    "text": "Step 5: Try It Yourself! 🔬\nNow YOU can use the AI! Change the numbers below to test different water samples:\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\nTry these challenges: 1. Clean water: pH=7.0, Dissolved_Oxygen=10, Turbidity=1.5, Temperature=20, Conductivity=400, Nitrates=1 2. Polluted water: pH=5.5, Dissolved_Oxygen=4.0, Turbidity=18, Temperature=30, Conductivity=800, Nitrates=12 3. Your own values! What happens if pH is really high? Or turbidity is super low?"
+  },
+  {
+    "objectID": "AAIC-Modules-Pyodide.html#step-6-test-multiple-samples-at-once",
+    "href": "AAIC-Modules-Pyodide.html#step-6-test-multiple-samples-at-once",
+    "title": "Machine Learning for Water Quality Prediction",
+    "section": "Step 6: Test Multiple Samples at Once",
+    "text": "Step 6: Test Multiple Samples at Once\nLet’s compare water from different sources:\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\nWhat you see: The AI can quickly analyze water from many places at once. This is how it could be used in real environmental monitoring!"
+  },
+  {
+    "objectID": "AAIC-Module-Thebe.html#option-1-hidden-code-with-toggle-button",
+    "href": "AAIC-Module-Thebe.html#option-1-hidden-code-with-toggle-button",
+    "title": "Interactive Water Quality Analysis",
+    "section": "Option 1: Hidden Code with Toggle Button",
+    "text": "Option 1: Hidden Code with Toggle Button\nStudents can run the code without seeing it, but can click “Show Code” if they want to see it.\n\nShow Code\n\n\nimport numpy as np\nimport matplotlib.pyplot as plt\n\n# Generate sample water quality data\nph_levels = np.random.normal(7.0, 0.5, 100)\nprint(f\"Average pH: {np.mean(ph_levels):.2f}\")\nprint(f\"pH Range: {np.min(ph_levels):.2f} - {np.max(ph_levels):.2f}\")\n\n# Plot histogram\nplt.figure(figsize=(8, 5))\nplt.hist(ph_levels, bins=20, edgecolor='black', alpha=0.7)\nplt.xlabel('pH Level')\nplt.ylabel('Frequency')\nplt.title('Distribution of Water pH Levels')\nplt.axvline(7.0, color='red', linestyle='--', label='Neutral pH')\nplt.legend()\nplt.grid(True, alpha=0.3)\nplt.show()"
+  },
+  {
+    "objectID": "AAIC-Module-Thebe.html#option-2-completely-hidden-code-no-toggle",
+    "href": "AAIC-Module-Thebe.html#option-2-completely-hidden-code-no-toggle",
+    "title": "Interactive Water Quality Analysis",
+    "section": "Option 2: Completely Hidden Code (No Toggle)",
+    "text": "Option 2: Completely Hidden Code (No Toggle)\nStudents just see the run button and output. Code is completely hidden.\n\nimport numpy as np\n\n# Calculate water quality index\nturbidity = np.random.uniform(1, 10)\ndissolved_oxygen = np.random.uniform(5, 12)\n\nwqi = (dissolved_oxygen * 0.6 + (10 - turbidity) * 0.4) * 10\n\nprint(f\"Water Quality Index: {wqi:.1f}\")\nif wqi &gt; 80:\n    print(\"Status: Excellent\")\nelif wqi &gt; 60:\n    print(\"Status: Good\")\nelif wqi &gt; 40:\n    print(\"Status: Fair\")\nelse:\n    print(\"Status: Poor\")"
+  },
+  {
+    "objectID": "AAIC-Module-Thebe.html#option-3-fadedblurred-code",
+    "href": "AAIC-Module-Thebe.html#option-3-fadedblurred-code",
+    "title": "Interactive Water Quality Analysis",
+    "section": "Option 3: Faded/Blurred Code",
+    "text": "Option 3: Faded/Blurred Code\nCode is visible but de-emphasized. Still runnable.\n\nimport numpy as np\nprint(\"This code is faded but runnable!\")\ndata = np.random.rand(5)\nprint(f\"Random data: {data}\")"
+  },
+  {
+    "objectID": "AAIC-Module-Thebe.html#option-4-collapsed-code-with-expand-option",
+    "href": "AAIC-Module-Thebe.html#option-4-collapsed-code-with-expand-option",
+    "title": "Interactive Water Quality Analysis",
+    "section": "Option 4: Collapsed Code with Expand Option",
+    "text": "Option 4: Collapsed Code with Expand Option\nShows first line with “…” and expands on click.\n\nExpand\n\n\nimport numpy as np\nimport matplotlib.pyplot as plt\n\n# Temperature data\ntemperatures = np.random.normal(20, 3, 50)\nprint(f\"Average temperature: {np.mean(temperatures):.1f}°C\")\n\nplt.figure(figsize=(8, 4))\nplt.plot(temperatures, marker='o', linestyle='-', markersize=4)\nplt.xlabel('Measurement')\nplt.ylabel('Temperature (°C)')\nplt.title('Water Temperature Over Time')\nplt.grid(True)\nplt.show()"
+  },
+  {
+    "objectID": "AAIC-Module-Thebe.html#recommended-clean-version-with-just-run-buttons",
+    "href": "AAIC-Module-Thebe.html#recommended-clean-version-with-just-run-buttons",
+    "title": "Interactive Water Quality Analysis",
+    "section": "Recommended: Clean Version with Just Run Buttons",
+    "text": "Recommended: Clean Version with Just Run Buttons\nThis is probably what you want - descriptive text with run buttons, no visible code:\n\nAnalyze pH Levels\nClick run to analyze the pH distribution:\n\nimport numpy as np\nprint(\"Analyzing pH levels...\")\nph_data = np.random.normal(7.2, 0.4, 50)\nprint(f\"Mean pH: {np.mean(ph_data):.2f}\")\nprint(f\"Standard deviation: {np.std(ph_data):.2f}\")\nprint(f\"Safe range (6.5-8.5): {'Yes' if 6.5 &lt;= np.mean(ph_data) &lt;= 8.5 else 'No'}\")\n\n\n\n\nCheck Dissolved Oxygen\nClick run to check oxygen levels:\n\nimport numpy as np\ndo_levels = np.random.uniform(7, 11, 30)\nprint(f\"Dissolved Oxygen: {np.mean(do_levels):.2f} mg/L\")\nif np.mean(do_levels) &gt;= 8:\n    print(\"✓ Healthy oxygen levels for aquatic life\")\nelse:\n    print(\"⚠ Low oxygen levels - monitor closely\")"
   }
 ]
