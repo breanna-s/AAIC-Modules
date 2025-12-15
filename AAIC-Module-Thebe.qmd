@@ -44,6 +44,19 @@ format: html
   display: block;
 }
 
+/* For completely hidden code - hides pre and CodeMirror but not buttons/output */
+.hide-code-only .CodeMirror,
+.hide-code-only pre {
+  display: none !important;
+}
+
+/* Keep Thebe buttons and output visible */
+.hide-code-only .thebelab-button,
+.hide-code-only .thebelab-output,
+.hide-code-only button {
+  display: inline-block !important;
+}
+
 /* Style for toggle button */
 .toggle-code-btn {
   background-color: #28a745;
@@ -240,7 +253,7 @@ This is probably what you want - descriptive text with run buttons, no visible c
 
 Click run to analyze the pH distribution:
 
-<div style="display: none;">
+<div class="hide-code-only">
 <pre data-executable="true" data-language="python">
 import numpy as np
 print("Analyzing pH levels...")
@@ -255,7 +268,7 @@ print(f"Safe range (6.5-8.5): {'Yes' if 6.5 <= np.mean(ph_data) <= 8.5 else 'No'
 
 Click run to check oxygen levels:
 
-<div style="display: none;">
+<div class="hide-code-only">
 <pre data-executable="true" data-language="python">
 import numpy as np
 do_levels = np.random.uniform(7, 11, 30)
