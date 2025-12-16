@@ -327,40 +327,31 @@ else:
 </pre>
 </div>
 <hr>
-</section>
-<section id="option-3-fadedblurred-code" class="level2">
-<h2 class="anchored" data-anchor-id="option-3-fadedblurred-code">Option 3: Faded/Blurred Code</h2>
-<p>Code is visible but de-emphasized. Still runnable.</p>
-<div class="faded-code">
-<pre data-executable="true" data-language="python">import numpy as np
-print("This code is faded but runnable!")
-data = np.random.rand(5)
-print(f"Random data: {data}")
-</pre>
-</div>
 <hr>
 </section>
-<section id="option-4-collapsed-code-with-expand-option" class="level2">
-<h2 class="anchored" data-anchor-id="option-4-collapsed-code-with-expand-option">Option 4: Collapsed Code with Expand Option</h2>
-<p>Shows first line with “…” and expands on click.</p>
-<button id="toggle3" class="toggle-code-btn" onclick="document.getElementById('code3').classList.toggle('expanded'); this.textContent = document.getElementById('code3').classList.contains('expanded') ? 'Collapse' : 'Expand';">
-Expand
-</button>
-<div id="code3" class="collapsed-code">
-<pre data-executable="true" data-language="python">import numpy as np
-import matplotlib.pyplot as plt
+<section id="option-3-attempt-at-echo-false" class="level2">
+<h2 class="anchored" data-anchor-id="option-3-attempt-at-echo-false">Option 3: Attempt at echo: false</h2>
+<p>Students just see the run button and output. Code is completely hidden.</p>
+<div style="display: none;">
+<pre data-executable="true" data-language="python">#| echo: false
 
-# Temperature data
-temperatures = np.random.normal(20, 3, 50)
-print(f"Average temperature: {np.mean(temperatures):.1f}°C")
+import numpy as np
 
-plt.figure(figsize=(8, 4))
-plt.plot(temperatures, marker='o', linestyle='-', markersize=4)
-plt.xlabel('Measurement')
-plt.ylabel('Temperature (°C)')
-plt.title('Water Temperature Over Time')
-plt.grid(True)
-plt.show()
+# Calculate water quality index
+turbidity = np.random.uniform(1, 10)
+dissolved_oxygen = np.random.uniform(5, 12)
+
+wqi = (dissolved_oxygen * 0.6 + (10 - turbidity) * 0.4) * 10
+
+print(f"Water Quality Index: {wqi:.1f}")
+if wqi &gt; 80:
+    print("Status: Excellent")
+elif wqi &gt; 60:
+    print("Status: Good")
+elif wqi &gt; 40:
+    print("Status: Fair")
+else:
+    print("Status: Poor")
 </pre>
 </div>
 <hr>

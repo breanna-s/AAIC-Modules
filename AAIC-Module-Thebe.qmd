@@ -45,16 +45,24 @@ format: html
 }
 
 /* For completely hidden code - hides pre and CodeMirror but not buttons/output */
-.hide-code-only .CodeMirror,
-.hide-code-only pre {
+.hide-code-only .CodeMirror {
   display: none !important;
 }
 
-/* Keep Thebe buttons and output visible */
+.hide-code-only pre:not(.thebelab-output) {
+  display: none !important;
+}
+
+/* Ensure Thebe buttons and output are always visible */
 .hide-code-only .thebelab-button,
-.hide-code-only .thebelab-output,
 .hide-code-only button {
   display: inline-block !important;
+}
+
+.hide-code-only .thebelab-output,
+.hide-code-only .jp-OutputArea,
+.hide-code-only .jp-OutputArea-output {
+  display: block !important;
 }
 
 /* Style for toggle button */

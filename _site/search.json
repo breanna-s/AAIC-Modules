@@ -313,5 +313,12 @@
     "title": "Interactive Water Quality Analysis",
     "section": "Recommended: Clean Version with Just Run Buttons",
     "text": "Recommended: Clean Version with Just Run Buttons\nThis is probably what you want - descriptive text with run buttons, no visible code:\n\nAnalyze pH Levels\nClick run to analyze the pH distribution:\n\nimport numpy as np\nprint(\"Analyzing pH levels...\")\nph_data = np.random.normal(7.2, 0.4, 50)\nprint(f\"Mean pH: {np.mean(ph_data):.2f}\")\nprint(f\"Standard deviation: {np.std(ph_data):.2f}\")\nprint(f\"Safe range (6.5-8.5): {'Yes' if 6.5 &lt;= np.mean(ph_data) &lt;= 8.5 else 'No'}\")\n\n\n\n\nCheck Dissolved Oxygen\nClick run to check oxygen levels:\n\nimport numpy as np\ndo_levels = np.random.uniform(7, 11, 30)\nprint(f\"Dissolved Oxygen: {np.mean(do_levels):.2f} mg/L\")\nif np.mean(do_levels) &gt;= 8:\n    print(\"✓ Healthy oxygen levels for aquatic life\")\nelse:\n    print(\"⚠ Low oxygen levels - monitor closely\")"
+  },
+  {
+    "objectID": "AAIC-Module-Thebe.html#option-3-attempt-at-echo-false",
+    "href": "AAIC-Module-Thebe.html#option-3-attempt-at-echo-false",
+    "title": "Interactive Water Quality Analysis",
+    "section": "Option 3: Attempt at echo: false",
+    "text": "Option 3: Attempt at echo: false\nStudents just see the run button and output. Code is completely hidden.\n\n#| echo: false\n\nimport numpy as np\n\n# Calculate water quality index\nturbidity = np.random.uniform(1, 10)\ndissolved_oxygen = np.random.uniform(5, 12)\n\nwqi = (dissolved_oxygen * 0.6 + (10 - turbidity) * 0.4) * 10\n\nprint(f\"Water Quality Index: {wqi:.1f}\")\nif wqi &gt; 80:\n    print(\"Status: Excellent\")\nelif wqi &gt; 60:\n    print(\"Status: Good\")\nelif wqi &gt; 40:\n    print(\"Status: Fair\")\nelse:\n    print(\"Status: Poor\")"
   }
 ]
