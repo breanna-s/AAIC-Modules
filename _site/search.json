@@ -320,5 +320,12 @@
     "title": "Interactive Water Quality Analysis",
     "section": "Option 3: Attempt at echo: false",
     "text": "Option 3: Attempt at echo: false\nStudents just see the run button and output. Code is completely hidden.\n\n#| echo: false\n\nimport numpy as np\n\n# Calculate water quality index\nturbidity = np.random.uniform(1, 10)\ndissolved_oxygen = np.random.uniform(5, 12)\n\nwqi = (dissolved_oxygen * 0.6 + (10 - turbidity) * 0.4) * 10\n\nprint(f\"Water Quality Index: {wqi:.1f}\")\nif wqi &gt; 80:\n    print(\"Status: Excellent\")\nelif wqi &gt; 60:\n    print(\"Status: Good\")\nelif wqi &gt; 40:\n    print(\"Status: Fair\")\nelse:\n    print(\"Status: Poor\")"
+  },
+  {
+    "objectID": "AAIC-Thebe-Py-Link.html",
+    "href": "AAIC-Thebe-Py-Link.html",
+    "title": "Machine Learning for Water Quality Prediction",
+    "section": "",
+    "text": "# Import the module\nimport water_quality\n\n\n\nAnalyze pH Levels\n\n\nClick run to analyze pH distribution:\n\n\nwater_quality.analyze_ph(samples=100)\n\n\n\nCalculate Water Quality Index\n\n\nEnter your measurements and run:\n\n# Students can modify these values\nturbidity = 5.0\ndissolved_oxygen = 8.5\n\nwqi, status = water_quality.calculate_wqi(turbidity, dissolved_oxygen)"
   }
 ]

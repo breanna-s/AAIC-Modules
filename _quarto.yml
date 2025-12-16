@@ -11,6 +11,8 @@ website:
         text: Pyodide
       - href: AAIC-Module-Thebe.qmd
         text: Thebe
+      - href: water-quality-lesson.qmd
+        text: Link Test
 
 format:
   html:

@@ -1,0 +1,377 @@
+---
+title: "Interactive Water Quality Analysis"
+format: html
+---
+
+<!-- Thebe Configuration -->
+<script type="text/x-thebe-config">
+{
+  requestKernel: true,
+  binderOptions: {
+    repo: "breanna-s/AAIC-Modules",
+    ref: "main"
+  },
+  kernelOptions: {
+    name: "python3",
+    path: "."
+  },
+  mountActivateWidget: true,
+  mountStatusWidget: true
+}
+</script>
+
+<!-- Load Thebe library -->
+<script src="https://unpkg.com/thebe@latest/lib/index.js"></script>
+
+<!-- Custom styling -->
+<style>
+.thebe-activate-button {
+  background-color: #0066cc;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.thebe-status {
+  margin: 10px 0;
+  padding: 10px;
+  background-color: #f0f0f0;
+  border-radius: 5px;
+}
+
+/* Hide code but keep run buttons and output */
+.hide-code-only .CodeMirror {
+  display: none !important;
+}
+
+.hide-code-only pre:not(.thebelab-output) {
+  display: none !important;
+}
+
+.hide-code-only .thebelab-button,
+.hide-code-only button {
+  display: inline-block !important;
+}
+
+.hide-code-only .thebelab-output,
+.hide-code-only .jp-OutputArea,
+.hide-code-only .jp-OutputArea-output {
+  display: block !important;
+}
+
+/* Section styling */
+.exercise-section {
+  background-color: #f8f9fa;
+  border-left: 4px solid #0066cc;
+  padding: 15px;
+  margin: 20px 0;
+  border-radius: 5px;
+}
+
+.exercise-title {
+  color: #0066cc;
+  font-weight: bold;
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.instruction {
+  background-color: #e7f3ff;
+  padding: 10px;
+  border-radius: 5px;
+  margin: 10px 0;
+}
+</style>
+
+## Welcome to Water Quality Analysis!
+
+In this lesson, you'll learn to analyze water quality using real scientific methods. Click the button below to connect to the cloud computing environment.
+
+<!-- Activation widgets -->
+<div class="thebe-activate"></div>
+<div class="thebe-status"></div>
+
+<hr>
+
+## Step 1: Load the Analysis Tools
+
+First, we need to import our water quality analysis functions. Click **Run** below:
+
+<div class="hide-code-only">
+<pre data-executable="true" data-language="python">
+# Import the water quality analysis module
+import water_quality
+
+print("✓ Water quality analysis tools loaded successfully!")
+print("Available functions:")
+print("  - analyze_ph()")
+print("  - calculate_wqi()")
+print("  - compare_samples()")
+print("  - generate_sample_data()")
+print("  - plot_time_series()")
+</pre>
+</div>
+
+<hr>
+
+## Exercise 1: Analyze pH Levels
+
+pH measures how acidic or basic water is. Safe drinking water should have a pH between 6.5 and 8.5.
+
+<div class="exercise-section">
+<div class="exercise-title">🔬 Run Basic pH Analysis</div>
+<div class="instruction">
+Click Run to analyze 100 water samples with a neutral pH.
+</div>
+
+<div class="hide-code-only">
+<pre data-executable="true" data-language="python">
+# Analyze pH levels from 100 samples
+water_quality.analyze_ph(samples=100)
+</pre>
+</div>
+</div>
+
+<div class="exercise-section">
+<div class="exercise-title">🎯 Try Different Scenarios</div>
+<div class="instruction">
+Now modify the parameters below to test different water conditions. Change the numbers and click Run:
+</div>
+
+<pre data-executable="true" data-language="python">
+# Change these values to test different scenarios!
+# Try: samples=50, mean_ph=6.0, std_dev=1.0
+
+water_quality.analyze_ph(
+    samples=150,      # Number of water samples
+    mean_ph=7.5,      # Average pH (try 6.0, 7.0, or 8.0)
+    std_dev=0.3       # How much pH varies (try 0.1 to 1.0)
+)
+</pre>
+</div>
+
+<hr>
+
+## Exercise 2: Calculate Water Quality Index (WQI)
+
+The Water Quality Index combines multiple measurements into a single score (0-100).
+
+<div class="exercise-section">
+<div class="exercise-title">💧 Test Clean Water</div>
+<div class="instruction">
+This represents ideal water conditions. Click Run:
+</div>
+
+<div class="hide-code-only">
+<pre data-executable="true" data-language="python">
+# Clean water example
+wqi, status = water_quality.calculate_wqi(
+    turbidity=2.0,           # Low turbidity (clear water)
+    dissolved_oxygen=10.0,   # High oxygen (healthy)
+    temperature=18
+)
+</pre>
+</div>
+</div>
+
+<div class="exercise-section">
+<div class="exercise-title">⚠️ Test Polluted Water</div>
+<div class="instruction">
+Now test water with pollution. Notice how the WQI changes:
+</div>
+
+<div class="hide-code-only">
+<pre data-executable="true" data-language="python">
+# Polluted water example
+wqi, status = water_quality.calculate_wqi(
+    turbidity=8.5,          # High turbidity (murky water)
+    dissolved_oxygen=4.0,   # Low oxygen (unhealthy)
+    temperature=25
+)
+</pre>
+</div>
+</div>
+
+<div class="exercise-section">
+<div class="exercise-title">🧪 Your Turn: Test Your Own Water Sample</div>
+<div class="instruction">
+Modify the values below to test different water conditions:
+- **Turbidity**: 0-10 (lower is clearer)
+- **Dissolved Oxygen**: 0-15 mg/L (higher is healthier)
+</div>
+
+<pre data-executable="true" data-language="python">
+# YOUR MEASUREMENTS HERE
+# Change these values to match your water sample
+
+my_turbidity = 5.0        # Try values between 0-10
+my_dissolved_oxygen = 7.5  # Try values between 0-15
+my_temperature = 20        # Temperature in Celsius
+
+wqi, status = water_quality.calculate_wqi(
+    turbidity=my_turbidity,
+    dissolved_oxygen=my_dissolved_oxygen,
+    temperature=my_temperature
+)
+</pre>
+</div>
+
+<hr>
+
+## Exercise 3: Compare Two Water Sources
+
+Let's compare water quality from two different locations.
+
+<div class="exercise-section">
+<div class="exercise-title">🏞️ River vs Lake Comparison</div>
+<div class="instruction">
+Generate sample data from two locations and compare them:
+</div>
+
+<div class="hide-code-only">
+<pre data-executable="true" data-language="python">
+import numpy as np
+
+# Generate sample data for two locations
+river_ph = np.random.normal(7.0, 0.4, 50)   # River samples
+lake_ph = np.random.normal(7.5, 0.3, 50)    # Lake samples
+
+# Compare them
+water_quality.compare_samples(river_ph, lake_ph, param_name="pH")
+</pre>
+</div>
+</div>
+
+<div class="exercise-section">
+<div class="exercise-title">✏️ Create Your Own Comparison</div>
+<div class="instruction">
+Modify the mean values and sample sizes to create your own comparison:
+</div>
+
+<pre data-executable="true" data-language="python">
+import numpy as np
+
+# Create your own samples
+# np.random.normal(mean, std_deviation, number_of_samples)
+
+location_a = np.random.normal(7.2, 0.5, 60)  # Change these values
+location_b = np.random.normal(6.8, 0.6, 60)  # Change these values
+
+water_quality.compare_samples(location_a, location_b, param_name="pH Levels")
+</pre>
+</div>
+
+<hr>
+
+## Exercise 4: Analyze Time Series Data
+
+Real water quality monitoring tracks changes over time.
+
+<div class="exercise-section">
+<div class="exercise-title">📊 Generate 30 Days of Data</div>
+<div class="instruction">
+Create a month of water quality measurements:
+</div>
+
+<div class="hide-code-only">
+<pre data-executable="true" data-language="python">
+# Generate sample data for a river
+river_data = water_quality.generate_sample_data(location="Tennessee River", days=30)
+
+# Show the first 5 days
+print("\nFirst 5 days of measurements:")
+print(f"pH: {river_data['ph'][:5]}")
+print(f"Turbidity: {river_data['turbidity'][:5]}")
+print(f"Dissolved Oxygen: {river_data['dissolved_oxygen'][:5]}")
+</pre>
+</div>
+</div>
+
+<div class="exercise-section">
+<div class="exercise-title">📈 Visualize the Data</div>
+<div class="instruction">
+Plot all parameters over time to see trends:
+</div>
+
+<div class="hide-code-only">
+<pre data-executable="true" data-language="python">
+# Plot the time series
+water_quality.plot_time_series(river_data, title="Tennessee River - Monthly Analysis")
+</pre>
+</div>
+</div>
+
+<div class="exercise-section">
+<div class="exercise-title">🎲 Generate Your Own Dataset</div>
+<div class="instruction">
+Create data for your own location and time period:
+</div>
+
+<pre data-executable="true" data-language="python">
+# Change the location name and number of days
+my_data = water_quality.generate_sample_data(
+    location="My Local Stream",  # Change this
+    days=45                       # Change this (try 7, 30, 60, 90)
+)
+
+# Plot it
+water_quality.plot_time_series(my_data, title="My Water Quality Study")
+</pre>
+</div>
+
+<hr>
+
+## 🎓 Challenge: Full Analysis
+
+<div class="exercise-section">
+<div class="exercise-title">🏆 Complete Water Quality Report</div>
+<div class="instruction">
+Use everything you've learned to create a comprehensive analysis:
+</div>
+
+<pre data-executable="true" data-language="python">
+# 1. Generate data
+study_data = water_quality.generate_sample_data("Knoxville Creek", days=30)
+
+# 2. Analyze pH
+print("\n" + "="*50)
+print("STEP 1: pH ANALYSIS")
+print("="*50)
+water_quality.analyze_ph(samples=len(study_data['ph']))
+
+# 3. Calculate average WQI
+print("\n" + "="*50)
+print("STEP 2: AVERAGE WATER QUALITY INDEX")
+print("="*50)
+import numpy as np
+avg_turbidity = np.mean(study_data['turbidity'])
+avg_do = np.mean(study_data['dissolved_oxygen'])
+avg_temp = np.mean(study_data['temperature'])
+
+wqi, status = water_quality.calculate_wqi(avg_turbidity, avg_do, avg_temp)
+
+# 4. Plot trends
+print("\n" + "="*50)
+print("STEP 3: TIME SERIES VISUALIZATION")
+print("="*50)
+water_quality.plot_time_series(study_data, "Complete Analysis: Knoxville Creek")
+
+print("\n✓ Analysis complete!")
+</pre>
+</div>
+
+<hr>
+
+## Summary
+
+You've learned to:
+- ✅ Analyze pH levels in water samples
+- ✅ Calculate Water Quality Index (WQI)
+- ✅ Compare samples from different sources
+- ✅ Track water quality over time
+- ✅ Create visualizations of water data
+
+**Next Steps**: Try modifying the parameters in each exercise to explore how different conditions affect water quality!
